@@ -97,9 +97,60 @@ public class GenerationTest
         
         gen1 = new Generation(firstGenBoard);
         gen2 = gen1.createNextGeneration();
-        String gen2String = gen2.toString();
+        String genToString = gen2.toString();
         String expectedResult = "0 0 0 0 0\n1 0 1 1 1\n1 1 1 1 1\n0 1 0 0 0\n0 0 0 0 0";
-        assertTrue( gen2String.equals(expectedResult));
+        assertTrue( genToString.equals(expectedResult));
+        
+        
+        //test first rule
+        boolean[][] testBoard = {
+        		{true, false},
+        		{false, false}
+        };
+        
+        gen1 = new Generation(testBoard);
+        gen2 = gen1.createNextGeneration();
+        genToString = gen2.toString();
+        expectedResult = "0 0\n0 0";
+        assertTrue( genToString.equals(expectedResult));
+        
+        //test second rule
+        boolean[][] testBoard2 = {
+        		{true, true},
+        		{true, false}
+        };
+        
+        gen1 = new Generation(testBoard2);
+        gen2 = gen1.createNextGeneration();
+        genToString = gen2.toString();
+        expectedResult = "1 1\n1 1";
+        assertTrue( genToString.equals(expectedResult));
+        
+        //test third rule
+        boolean[][] testBoard3 = {
+        		{true, true, true},
+        		{true, true, true},
+        		{true, true, true}
+        };
+        
+        gen1 = new Generation(testBoard3);
+        gen2 = gen1.createNextGeneration();
+        genToString = gen2.toString();
+        expectedResult = "1 0 1\n0 0 0\n1 0 1";
+        assertTrue( genToString.equals(expectedResult));
+        
+      //test third rule
+        boolean[][] testBoard4 = {
+        		{false, true, false},
+        		{true, true, true},
+        		{false, true, false}
+        };
+        
+        gen1 = new Generation(testBoard4);
+        gen2 = gen1.createNextGeneration();
+        genToString = gen2.toString();
+        expectedResult = "1 1 1\n1 0 1\n1 1 1";
+        assertTrue( genToString.equals(expectedResult));
         
     }
 }
