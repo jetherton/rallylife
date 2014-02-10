@@ -113,7 +113,6 @@ public class Generation {
     /**
      * Just your average toString
      */
-    @Override
     public String toString(){
     	String retVal = "";
     	for(int x = 0; x < board.length; x++){
